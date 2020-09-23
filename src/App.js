@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+   class Count extends React.Component{
+    constructor(){
+      super()
+      this.state={
+        temp:0
+      }
+      
+    }
+     
+    
+    plus=()=>{
+      this.setState(prevState=>{return {temp:prevState.temp+1 }})
+      }
+    minus=()=>{
+      this.setState(prevState=>{return {temp:prevState.temp-1 }})
+      }
+    reset=()=>{
+      this.setState({temp:0 })
+      }
+     
+      render(){
+      const {temp}=this.state
+      return(
+         <div style={{marginLeft:"40%"}}>
+            <h1 style={{marginLeft:"4%"}}>{temp}</h1>
+            <button onClick={this.plus}>+</button>
+            <button onClick={this.reset}>reset</button>
+            <button onClick={this.minus}>-</button> 
+         </div>
+       )
+     }
+   }
 
-export default App;
+export default Count;
